@@ -11,7 +11,7 @@ WHERE Barcode = '2855934983'
 
 INSERT INTO
 Loans(PatronID, BookID, LoanDate, DueDate)
-VALUES (
+VALUES
  ((SELECT PatronID FROM Patrons WHERE Email = 'jvaan@wisdompets.com'), 
   (SELECT BookID FROM Books WHERE Barcode = '2855934983'),
   ('2022-08-25'),
@@ -20,5 +20,9 @@ VALUES (
   (SELECT BookID FROM Books WHERE Barcode = '4043822646'),
   ('2022-08-25'),
   ('2022-09-08'))
-)
 
+SELECT
+*
+FROM Loans l
+JOIN Patrons p ON p.PatronID = l.PatronID
+WHERE p.Email LIKE 'jvaan%'
