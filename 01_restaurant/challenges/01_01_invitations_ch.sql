@@ -2,3 +2,10 @@
 
 -- Show their first name, last name, and email address.
 -- Sort the list of results by last name.
+SELECT
+ c.FirstName,
+ c.LastName,
+ c.Email
+FROM Customers as c
+ORDER BY
+ c.LastName
